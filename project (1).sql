@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 13, 2020 at 03:25 PM
+-- Generation Time: May 13, 2020 at 08:25 PM
 -- Server version: 5.7.14-log
 -- PHP Version: 7.1.6
 
@@ -39,7 +39,11 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`Serial`, `ID`, `Student_Name`, `Thesis_or_Project_Title`, `Supervisor`) VALUES
+(4, 9701044, 'w', 'rr', 'FJ'),
+(0, 11701039, 'Mr Y', 'Bomb', 'KAZ'),
+(15, 13701039, 'Mr X', 'N/A', 'NS'),
 (1, 14701083, 'Sazzadur Rahman', 'N/A', 'MRUF'),
+(14, 14701087, 'Jamal Uddin', 'N/A', 'OSI'),
 (2, 15701001, 'AA Zubair Choton', 'N/A', 'NS'),
 (3, 15701007, 'Nusrat Anne', 'ECG', 'AR'),
 (4, 15701010, 'Thoky', 'N/A', 'AHMSH'),
@@ -57,7 +61,8 @@ INSERT INTO `project` (`Serial`, `ID`, `Student_Name`, `Thesis_or_Project_Title`
 (16, 15701039, 'Hasan Masud', 'IoT Based LPG Gas Lickage Detection & Measurement System', 'MSC'),
 (17, 15701041, 'Ibrahim Onu', 'N/A', 'ANC'),
 (18, 15701052, 'Tagar Chowdhury', 'N/A', 'MKI'),
-(19, 15701060, 'Imtiaz Faruk', 'N/A', 'KAZ');
+(19, 15701060, 'Imtiaz Faruk', 'N/A', 'KAZ'),
+(2, 16701039, 'Mr. Masud', 'Kill Heto', 'OSI');
 
 --
 -- Indexes for dumped tables
@@ -70,15 +75,6 @@ ALTER TABLE `project`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Serial` (`Serial`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `project`
---
-ALTER TABLE `project`
-  MODIFY `Serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
