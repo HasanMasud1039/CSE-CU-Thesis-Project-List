@@ -39,14 +39,15 @@ tr:nth-child(even) {
   <br><br>  
 <input id="myInput" type="text" placeholder="Search...">
 <br><br>
-
+<br>
 <table id="myTable">
   <tr>
     <th>Serial</th>
     <th>ID</th>
     <th>Student Name</th>
-    <th>Thesis / ProjectTitle</th>
+    <th>Thesis / Project Title</th>
     <th>Supervisor</th>
+    
   </tr>
   
 
@@ -57,6 +58,7 @@ tr:nth-child(even) {
                 <td><?php echo $row1[2];?></td>
                 <td><?php echo $row1[3];?></td>
                 <td><?php echo $row1[4];?></td>
+                
             </tr>
             <?php endwhile;?>
 
@@ -71,7 +73,8 @@ $conn = mysqli_connect("localhost", "root", "12345", "project");
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT Serial,ID, Student_Name, Thesis_or_Project_Title, Supervisor FROM project";
+
+$sql = "SELECT Serial,ID,Student_Name, Thesis_or_Project_Title, Supervisor, (FLOOR(ID/1000000)) Batch FROM project ORDER BY Batch DESC";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
@@ -79,71 +82,71 @@ while($row = $result->fetch_assoc()) {
 
     
   if($row['ID']== 15701031)
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td><a href= 'https://www.researchgate.net/project/A-Belief-Rule-Based-Expert-System-for-Evaluating-Technological-Innovation-Capability-of-High-Tech-Firms-Under-Uncertainty'>".$row["Thesis_or_Project_Title"]."</a></td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3348>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td><a href= 'https://www.researchgate.net/project/A-Belief-Rule-Based-Expert-System-for-Evaluating-Technological-Innovation-Capability-of-High-Tech-Firms-Under-Uncertainty'>".$row["Thesis_or_Project_Title"]."</a></td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3348>".$row["Supervisor"]."</a></td><td>".$row["Batch"]."</td></tr>";
 
   
   if($row["Supervisor"] == "OSI" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4295'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4295'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "RM" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4792'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4792'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "MSH" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3348'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3348'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "MHS" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4106'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4106'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "MKI" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3905'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3905'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "MAA" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3904'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=3904'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "MSC" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4203'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4203'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "KAZ" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4297'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4297'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "NKC" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4298'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4298'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "MRUF" )
   echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4476'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "FJ" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4634'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4634'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "IA" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4635'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4635'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "RK" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4790'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4790'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "FIA" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4632'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=4632'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "RPDN" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5168'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5168'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "AHMSH" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5293'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5293'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "AR" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5292'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5292'>".$row["Supervisor"]."</a></td></tr>";
 
    else if($row['Supervisor'] == "SC" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5295'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5295'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "NS" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5294'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5294'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "MMI" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5291' onmouseover = ''>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5291' onmouseover = ''>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "ANC" )
-  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5905'>".$row["Supervisor"]."</a></td></tr>>";
+  echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5905'>".$row["Supervisor"]."</a></td></tr>";
 
   else if($row['Supervisor'] == "NMIC" )
   echo "<tr><td>".$row["Serial"]."</td><td>".$row["ID"]."</td><td>".$row["Student_Name"]."</td><td>".$row["Thesis_or_Project_Title"]."</td><td><a href = 'https://cu.ac.bd/public_profile/index.php?ein=5906'>".$row["Supervisor"]."</a></td></tr>>";
