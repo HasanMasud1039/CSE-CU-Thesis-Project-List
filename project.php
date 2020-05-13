@@ -14,9 +14,12 @@ $(document).ready(function(){
   });
 });
 </script>
-
 <style>
+body{ 
+background-color: rgb(231,224,224);
+}
 table {
+  
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -24,28 +27,57 @@ table {
 
 td, th {
   border: 1px solid #dddddd;
+  font-family: arial;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: snow;
+}
+div{
+  background-color: rgb(175, 22,22);
+  color: white;
+  padding : 4px;
+  font-size: 20px;
+  
+}
+input{
+  margin: 5px;
+  padding: 10px;
+  width: 290px;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  width: 50px;
+
+}
+
+img:hover {
+  box-shadow: 0 1 2px 5px rgba(0, 140, 186, 0.5);
 }
 </style>
+
 </head>
 <body>
-
-  <h1 align = 'center'>CSE CU Thesis & Project List</h1>
+<div>
+<img src= "/phpMyAdmin/cuu.png" align= left>
+<h1 align= center> CSE CU Thesis / Project List</h1>
+</div>
   <br><br>  
 <input id="myInput" type="text" placeholder="Search...">
 <br><br>
 <br>
 <table id="myTable">
   <tr>
-    <th>Serial</th>
+    <th >Serial</th>
     <th>ID</th>
-    <th>Student Name</th>
-    <th>Thesis / Project Title</th>
+    <th >Student Name</th>
+    <th >Thesis / Project Title</th>
     <th>Supervisor</th>
     
   </tr>
